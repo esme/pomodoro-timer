@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<title>Pomodoro</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Pomodoro Clock</h1>
+    <div class="timer">
+        <div class="session">
+            <h2>Session</h2>
+            <button id="sessionIncrement">&#x25B2;</button>
+            <p id="sessionLength">25</p>
+            <button id="sessionDecrement">&#x25BC;</button>
+        </div>
+        <div class="break">
+            <h2>Break</h2>
+            <button id="breakIncrement">&#x25B2;</button>
+            <p id="breakLength">5</p>
+            <button id="breakDecrement">&#x25BC;</button>
+        </div>
+    </div>
+    <div class="timer">
+        <button id="start">start</button>
+        <button id="reset">reset</button>
+        <h2 id="timerTitle">Session</h2>
+        <p id="duration">25.00</p>
+        <button id="stop">stop</button>
+        <button id="pause">pause</button>        
+    </div>
+</body>
+<script type="text/javascript" src="pomodoro.js"></script>
+</html>
