@@ -119,8 +119,9 @@ function updateDisplay(currentTime) {
         document.getElementById("duration").classList.replace("duration-green", "duration-yellow");
     } else if (currentTime === 10) {
         document.getElementById("duration").classList.replace("duration-yellow", "duration-red");
+    } else if (currentTime === sessionLength || currentTime === breakLength) {
+        document.getElementById("duration").classList.replace("duration-red", "duration-green");
     }
-    
 }
 
 function initializeClock() {
