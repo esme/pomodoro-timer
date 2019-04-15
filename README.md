@@ -1,6 +1,6 @@
 # Pomodoro-Timer
 
-A simple Pomodoro timer developed using the pair programming approach as suggested by The Odin Project. 
+A simple Pomodoro timer developed using the pair programming approach as suggested by The Odin Project. You can find it [here](https://leonjmac.github.io/pomodoro-timer/).
 
 Co-developed with [@esme](https://github.com/esme) in UAE and London. (Timezones, shminezones!)
 
