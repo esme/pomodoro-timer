@@ -1,5 +1,7 @@
 const defaultSessionLength = 120;
 const defaultBreakLength = 60;
+const maxSessionLength = 5940;
+const maxBreakLength = 1500;
 let sessionLength;
 let breakLength;
 let isSession;
@@ -9,7 +11,7 @@ let time;
 let timer;
 
 function incrementSessionLength() {
-    if(!isRunning && !isPaused) {
+    if(!isRunning && !isPaused && sessionLength < maxSessionLength) {
         sessionLength += 60;
         updateConfigDisplay();
         time = sessionLength;
@@ -29,7 +31,7 @@ function decrementSessionLength() {
 }
 
 function incrementBreakLength() {
-    if(!isRunning && !isPaused) {
+    if(!isRunning && !isPaused && breakLength < maxBreakLength) {
         breakLength += 60;
         updateConfigDisplay();
     }
@@ -100,8 +102,6 @@ function resetTimer() {
 }
 
 function updateDisplay(currentTime) {
-    // Transform from an int to a string
-    // Transform from seconds to hours / minutes / seconds
     let seconds = currentTime % 60;
     let minutes = (currentTime - seconds) / 60 % 60;
     let hours = Math.trunc((currentTime - seconds) / 3600);
@@ -112,16 +112,20 @@ function updateDisplay(currentTime) {
     
     let displayString = hours == 0 ? minutes + ":" + seconds : hours + ":" + minutes + ":" + seconds;
     
-    document.getElementById("duration").innerHTML = displayString;
     document.getElementById("timerTitle").innerHTML = isSession ? "Session" : "Break";
     
-    if (currentTime === 20) {
-        document.getElementById("duration").classList.replace("duration-green", "duration-yellow");
-    } else if (currentTime === 10) {
-        document.getElementById("duration").classList.replace("duration-yellow", "duration-red");
-    } else if (currentTime === sessionLength || currentTime === breakLength) {
-        document.getElementById("duration").classList.replace("duration-red", "duration-green");
+    let duration = document.getElementById("duration");
+    duration.classList = "";
+    
+    if (currentTime > 20) {
+        duration.classList.add("duration-green");
+    } else if (currentTime <= 10) {
+        duration.classList.add("duration-red");
+    } else {
+        duration.classList.add("duration-yellow");
     }
+    
+    duration.innerHTML = displayString;
 }
 
 function initializeClock() {
@@ -133,8 +137,6 @@ function initializeClock() {
     breakLength = defaultBreakLength;
     updateDisplay(time);
     updateConfigDisplay();
-    
-    document.getElementById("duration").className += "duration-green";
 }
 
 function updateConfigDisplay() {

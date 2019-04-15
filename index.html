@@ -1,41 +1,69 @@
 <!DOCTYPE html>
-<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
 <html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>Pomodoro</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
 
-<head>
-<meta charset="utf-8">
-<title>Pomodoro</title>
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-
-<body>
-    <h1>Pomodoro Clock</h1>
-    <div class="timer user-prefs">
-        <div class="session">
-            <h2>Session</h2>
-            <div class="controls">
-                <button id="sessionIncrement">&#x25B2;</button>
-                <p id="sessionLength">25</p>
-                <button id="sessionDecrement">&#x25BC;</button>
+    <body>
+        <h1>Pomodoro Clock</h1>
+        <div class="timer user-prefs">
+            <div class="session">
+                <h4>Session Time</h4>
+                <div class="controls">
+                    <button id="sessionDecrement">
+                        <i class="fas fa-chevron-circle-down"></i>
+                    </button>
+                    
+                    <p id="sessionLength">25</p>
+                    
+                    <button id="sessionIncrement">
+                        <i class="fas fa-chevron-circle-up"></i>
+                    </button>
+                    
+                </div>
+            </div>
+            <div class="break">
+                <h4>Break Time</h4>
+                <div class="controls">
+                    <button id="breakDecrement">
+                        <i class="fas fa-chevron-circle-down"></i>
+                    </button>
+                    
+                    <p id="breakLength">5</p>                    
+                    
+                    <button id="breakIncrement">
+                        <i class="fas fa-chevron-circle-up"></i>
+                    </button>
+                    
+                </div>
             </div>
         </div>
-        <div class="break">
-            <h2>Break</h2>
-            <div class="controls">
-                <button id="breakIncrement">&#x25B2;</button>
-                <p id="breakLength">5</p>
-                <button id="breakDecrement">&#x25BC;</button>
-            </div>
+        <div class="timer main-display">
+            <button id="start">
+                <i class="fas fa-play-circle"></i>
+            </button>
+            
+            <button id="reset">
+                <i class="fas fa-times-circle"></i>
+            </button>
+            
+            <h2 id="timerTitle">Session</h2>
+            <p id="duration">25.00</p>
+            
+            <button id="pause">
+                <i class="fas fa-pause-circle"></i>
+            </button>
+            
+            <button id="stop">
+                <i class="fas fa-stop-circle"></i>
+            </button>            
         </div>
-    </div>
-    <div class="timer main-display">
-        <button id="start">start</button>
-        <button id="reset">reset</button>
-        <h2 id="timerTitle">Session</h2>
-        <p id="duration">25.00</p>
-        <button id="pause">pause</button>    
-        <button id="stop">stop</button>
-    </div>
-</body>
-<script type="text/javascript" src="pomodoro.js"></script>
+    </body>
+    <footer>
+        <p>a collaboration by <a href="https://github.com/esme" target="_blank">@esme</a> &amp; <a href="https://github.com/leonjmac" target="_blank">@leonjmac</a><br/>&copy;2019</p>
+    </footer>
+    <script type="text/javascript" src="pomodoro.js"></script>
 </html>
